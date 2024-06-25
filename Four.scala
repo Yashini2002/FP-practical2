@@ -1,7 +1,8 @@
 object Four{
     def main(args: Array[String]): Unit = {
     
-    println(s"Highest profit is: ${profit(24)}")
+    val (bestPrice, highestProfit) = findBestPrice()
+    println(s"Highest profit is: $$highestProfit at ticket price: $$bestPrice")
   }
  
     def attendees(price:Int):Int=
@@ -23,4 +24,20 @@ object Four{
     {
        revenue(price)-cost(price)
     }
+
+    def findBestPrice(): (Int, Int) = {
+    val prices = 1 to 30  
+    var maxProfit = Int.MinValue
+    var bestPrice = 0
+
+    for (price <- prices) {
+      val currentProfit = profit(price)
+      if (currentProfit > maxProfit) {
+        maxProfit = currentProfit
+        bestPrice = price
+      }
+    }
+
+    (bestPrice, maxProfit)
+  }
 }
