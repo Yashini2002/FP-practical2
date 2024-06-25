@@ -2,7 +2,7 @@ object Four{
     def main(args: Array[String]): Unit = {
     
     val (bestPrice, highestProfit) = findBestPrice()
-    println(s"Highest profit is: $$highestProfit at ticket price: $$bestPrice")
+    println(s"Highest profit is: $highestProfit at ticket price: $bestPrice")
   }
  
     def attendees(price:Int):Int=
